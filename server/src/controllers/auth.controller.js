@@ -67,13 +67,15 @@ export const login = async (req, res) => {
         generateToken(user._id, res)
 
         console.log(user)
-        res.status(200).json({
+        // res.status(200).json({
 
-            id: user._id,
-            fullName: user.fullName,
-            email: user.email,
-            profilePic: user.profilePic,
-        })
+        //     id: user._id,
+        //     fullName: user.fullName,
+        //     email: user.email,
+        //     profilePic: user.profilePic,
+        // })
+
+        res.status(200).json(user)
 
     } catch (error) {
         console.error('Error during login:', error.message);
@@ -120,10 +122,11 @@ export const updateProfile = async (req, res) => {
 
 export const checkAuth = async (req, res) => {
     try {
+        console.log("From the auth controller /check route" , req.user)
         res.status(200).json(req.user)
     } catch (error) {
         console.log("Error in checkauth controller", error.message)
-        res.status(500).json({message : "Internal Server Error"})
+        res.status(500).json({ message: "Internal Server Error" })
 
     }
 }

@@ -21,8 +21,7 @@ export const protectRoute = async (req, res, next) => {
         })
 
         req.user = user
-
-
+        // console.log("From The server file", user)
         next()
 
     } catch (error) {
