@@ -45,7 +45,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2">
+    <div className="min-h-screen grid pt-16 lg:grid-cols-2">
       {/* Left Side */}
 
       <div className="flex flex-col justify-center items-center p-5 sm:p-12">
@@ -69,10 +69,10 @@ const SignupPage = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Full Name</span>
-              </label>
+              </label>  
               <div className="relative">
                 <div className="absolute z-10 inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="size-5 text-base-content/40" />
+                  <User className="size-5 text-base-content/40" />
                 </div>
                 <input
                   type="text"
