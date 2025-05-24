@@ -4,7 +4,9 @@ import User from "../models/user.model.js";
 
 export const getUserForSidebar = async (req, res) => {
     try {
-        const loggedInUserId = req.userId;
+        const loggedInUserId = req.user._id;
+        console.log("From the getUserForSidebar", loggedInUserId)
+        // console.log("Inside the .user route", loggedInUserId)
         const filteredUser = await User.find({
             _id: { $ne: loggedInUserId }
         }).select("-password")
