@@ -14,14 +14,15 @@ import { Toaster } from "react-hot-toast";
 // import { axiosInstance } from "./lib/axios";
 
 function App() {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth , onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
 
+  console.log( " Online Users : " ,onlineUsers)
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
-  console.log(authUser);
+//  console.log(authUser);
 
   if (isCheckingAuth && !authUser) {
     return (
