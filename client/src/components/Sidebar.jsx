@@ -18,6 +18,8 @@ const Sidebar = () => {
     getUsers();
   }, [getUsers]);
 
+console.log(users)
+
   const filteredUsers = showOnlineOnly
     ? users.filter((user) => onlineUsers.includes(user._id))
     : users;
@@ -48,6 +50,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="overflow-y-auto w-full py-3">
+        {console.log(filteredUsers)}
         {filteredUsers.map((user) => (
           <button
             key={user._id}
