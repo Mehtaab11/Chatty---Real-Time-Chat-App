@@ -17,8 +17,8 @@ export const signup = async (req, res) => {
             return res.status(400).json({ message: 'Password must be at least 6 characters long' });
         }
 
-        const existingUser = await User.find({ email });
-        if (existingUser.length > 0) return res.status(400).json({ message: 'User already exists' });
+        const existingUser = await User.findOne({ email });
+        if (existingUser) return res.status(400).json({ message: 'User already exists' });
 
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -67,15 +67,15 @@ export const login = async (req, res) => {
         generateToken(user._id, res)
 
         console.log(user)
-        // res.status(200).json({
+        res.status(200).json({
 
-        //     id: user._id,
-        //     fullName: user.fullName,
-        //     email: user.email,
-        //     profilePic: user.profilePic,
-        // })
+            _id: user._id,
+            fullName: user.fullName,
+            email: user.email,
+            profilePic: user.profilePic,
+        })
 
-        res.status(200).json(user)
+        // res.status(200).json(user)
 
     } catch (error) {
         console.error('Error during login:', error.message);
@@ -116,13 +116,14 @@ export const updateProfile = async (req, res) => {
         res.status(200).json(updatedUser)
 
     } catch (error) {
-
+        console.log("error in update profile:", error);
+        res.status(500).json({ message: "Internal server error" });
     }
 }
 
-export const checkAuth = async (req, res) => {
+export const checkAuth =  (req, res) => {
     try {
-        console.log("From the auth controller /check route" , req.user)
+        console.log("From the auth controller /check route", req.user)
         res.status(200).json(req.user)
     } catch (error) {
         console.log("Error in checkauth controller", error.message)
