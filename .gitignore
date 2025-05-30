@@ -1,44 +1,28 @@
-# --- Node Modules ---
-client/node_modules/
-server/node_modules/
-
-# --- Build & Output ---
-client/.next/
-client/out/
-client/build/
-server/dist/
-server/build/
-
-
-
-# --- Logs ---
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# --- Environment Variables ---
-*.env
-*.env.*  # Like .env.local, .env.production
+node_modules
+dist
+dist-ssr
+*.local
 
-# --- OS & Editor Specific ---
+# Editor directories and files
+
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# --- Test Coverage ---
-coverage/
-*.lcov
 
-# --- Cache ---
-.next/
-.cache/
-turbo/
-client/.turbo/
-server/.turbo/
-
-# --- Misc ---
-*.swp
-*.swo
-
+.env
