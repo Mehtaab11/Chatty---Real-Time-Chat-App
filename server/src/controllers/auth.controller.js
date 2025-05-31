@@ -5,10 +5,8 @@ import cloudinary from "../lib/cloudinary.js";
 
 
 export const signup = async (req, res) => {
-
     const { email, password, fullName } = req.body;
     try {
-        // hash password
         if (!email || !password || !fullName) {
             return res.status(400).json({ message: 'Please fill all fields' });
         }
@@ -26,11 +24,9 @@ export const signup = async (req, res) => {
             fullName,
             email,
             password: hashedPassword,
-
         });
 
         if (newUser) {
-            // jwt token generation
             generateToken(newUser._id, res);
             await newUser.save();
             res.status(201).json({
@@ -44,14 +40,15 @@ export const signup = async (req, res) => {
         }
 
     } catch (error) {
-        console.error('Error during signup:', error.message); z
-        res.status(500).json({ message: 'Internal server error' });
-
+        console.error('Signup Error:', {
+            message: error.message,
+            stack: error.stack,
+        });
+        res.status(500).json({ message: 'Signup failed. Please try again later.' });
     }
 }
 
 export const login = async (req, res) => {
-
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
@@ -60,41 +57,36 @@ export const login = async (req, res) => {
         }
 
         const isValid = await bcrypt.compare(password, user.password)
-        if (!isValid) return res.status(400).json({
-            message: "Invalid Credentials"
-        })
+        if (!isValid) return res.status(400).json({ message: "Invalid Credentials" })
 
         generateToken(user._id, res)
 
         console.log(user)
         res.status(200).json({
-
             _id: user._id,
             fullName: user.fullName,
             email: user.email,
             profilePic: user.profilePic,
         })
-
-        // res.status(200).json(user)
-
     } catch (error) {
-        console.error('Error during login:', error.message);
-        res.status(500).json({ message: 'Internal server error' });
-
+        console.error('Login Error:', {
+            message: error.message,
+            stack: error.stack,
+        });
+        res.status(500).json({ message: 'Login failed. Please try again later.' });
     }
-
-
 }
+
 export const logout = (req, res) => {
     try {
         res.cookie("jwt", "", { maxAge: 0 })
-        res.status(200).json({
-            message: "User Logged Out "
-        })
+        res.status(200).json({ message: "User Logged Out" })
     } catch (error) {
-        console.error('Error during login:', error.message);
-        res.status(500).json({ message: 'Internal server error' });
-
+        console.error('Logout Error:', {
+            message: error.message,
+            stack: error.stack,
+        });
+        res.status(500).json({ message: 'Logout failed. Please try again later.' });
     }
 }
 
@@ -116,18 +108,23 @@ export const updateProfile = async (req, res) => {
         res.status(200).json(updatedUser)
 
     } catch (error) {
-        console.log("error in update profile:", error);
-        res.status(500).json({ message: "Internal server error" });
+        console.error("Update Profile Error:", {
+            message: error.message,
+            stack: error.stack,
+        });
+        res.status(500).json({ message: "Failed to update profile. Please try again later." });
     }
 }
 
-export const checkAuth =  (req, res) => {
+export const checkAuth = (req, res) => {
     try {
         console.log("From the auth controller /check route", req.user)
         res.status(200).json(req.user)
     } catch (error) {
-        console.log("Error in checkauth controller", error.message)
-        res.status(500).json({ message: "Internal Server Error" })
-
+        console.error("CheckAuth Error:", {
+            message: error.message,
+            stack: error.stack,
+        });
+        res.status(500).json({ message: "Auth check failed. Please try again later." })
     }
 }
