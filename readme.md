@@ -30,7 +30,7 @@ Chatty is a full-stack real-time chat application built using the **MERN** stack
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots 
 
 ![image](https://github.com/user-attachments/assets/ef6a4d03-d08a-46c7-b4c9-1260491ff443)
 ![image](https://github.com/user-attachments/assets/15fd43b2-d826-4b1c-a457-d75e80852bfa)
