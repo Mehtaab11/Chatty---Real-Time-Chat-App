@@ -1,34 +1,45 @@
 # ✨ Chatty — Real-Time Chat App
 
-Live Demo: [https://chatty-real-time-chat-app-n4xg.onrender.com](https://chatty-real-time-chat-app-n4xg.onrender.com)
+🚀 Live Demo: [chatty-real-time-chat-app](https://chatty-real-time-chat-app-n4xg.onrender.com)
 
-A full-stack real-time chat application built with the MERN stack and Socket.io. Chatty supports real-time messaging, JWT authentication, online status indicators, and a clean, responsive UI with theme support.
+Chatty is a full-stack real-time chat application built using the **MERN** stack and **Socket.io**. It features real-time messaging, secure authentication with JWT and HttpOnly cookies, online status indicators, image sharing, and a sleek, responsive UI with 30+ themes.
 
 ---
 
-## 🚀 Tech Stack
+## 🛠️ Tech Stack
 
-- **Frontend**: React, TailwindCSS, DaisyUI
-- **Backend**: Node.js, Express.js, MongoDB
-- **Real-time**: Socket.io
-- **Auth**: JWT + HttpOnly Cookies
-- **Image Uploads**: Cloudinary
-- **State Management**: Zustand
+**Frontend**: React, TailwindCSS, DaisyUI  
+**Backend**: Node.js, Express.js, MongoDB  
+**Realtime**: Socket.io  
+**Auth**: JWT + HttpOnly Cookies  
+**Image Uploads**: Cloudinary  
+**State Management**: Zustand
 
 ---
 
 ## 🔥 Features
 
-- 🔐 User authentication and authorization (JWT + cookies)
-- 💬 Real-time messaging with Socket.io
-- 🟢 Online/offline user status
-- 🌈 32+ theme support (DaisyUI)
-- 🖼️ Image upload with Cloudinary
-- 🧠 Global state management with Zustand
-- ⚠️ Full error handling (frontend + backend)
-- 🧼 Clean and responsive UI
+- 🔐 Secure user authentication (JWT + HttpOnly cookies)
+- 💬 Real-time chat with Socket.io
+- 🟢 Online/offline user status indicators
+- 🌈 32+ UI themes (DaisyUI)
+- 🖼️ Image uploads via Cloudinary
+- 🧠 Global state management using Zustand
+- ⚠️ Full error handling (frontend & backend)
+- 🧼 Clean, responsive, mobile-friendly UI
 
 ---
-## Created By 
-- Linkedin : [Mehtab] (https://www.linkedin.com/in/mehtaabaalam/)
-- Twitter/X : (https://x.com/TheMehtaab) 
+
+## 📸 Screenshots (Optional)
+
+> _You can add screenshots or a short GIF demo here._
+
+---
+
+## 🧑‍💻 Created By
+
+- [Mehtaab Aalam – LinkedIn](https://www.linkedin.com/in/mehtaabaalam/)  
+- [@TheMehtaab – Twitter/X](https://x.com/TheMehtaab)
+
+---
+
